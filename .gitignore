@@ -41,3 +41,7 @@ yarn-error.log*
 # SQLite WAL and lock files (keep energy_data.db pre-seeded)
 *.db-wal
 *.db-shm
+
+# Private Interview & Video Scripts (Do not push to public repo)
+EXPLANATION_AND_INTERVIEW_GUIDE.md
+

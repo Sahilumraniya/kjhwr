@@ -3,12 +3,10 @@ import Navbar from './components/Navbar';
 import DecisionDesk from './components/DecisionDesk';
 import AccuracySuite from './components/AccuracySuite';
 import ThermalProcurement from './components/ThermalProcurement';
-import FormulaKnowledgeBase from './components/FormulaKnowledgeBase';
 import {
   Compass,
   LineChart,
   Flame,
-  BookOpen,
   Sparkles,
   RefreshCw
 } from 'lucide-react';
@@ -135,18 +133,6 @@ export default function App() {
               <Flame className="w-4 h-4" />
               <span>Thermal Procurement Planner</span>
             </button>
-
-            <button
-              onClick={() => setActiveTab('KNOWLEDGE')}
-              className={`py-3.5 px-1 border-b-2 font-medium text-xs sm:text-sm flex items-center space-x-2 transition-all ${
-                activeTab === 'KNOWLEDGE'
-                  ? 'border-purple-500 text-purple-600 dark:text-purple-400 font-bold'
-                  : 'border-transparent text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200'
-              }`}
-            >
-              <BookOpen className="w-4 h-4" />
-              <span>Formulas & Interview Q&A</span>
-            </button>
           </nav>
         </div>
       </div>
@@ -177,10 +163,6 @@ export default function App() {
             cutoffHour={cutoffHour}
             darkMode={darkMode}
           />
-        )}
-
-        {activeTab === 'KNOWLEDGE' && (
-          <FormulaKnowledgeBase />
         )}
       </main>
 

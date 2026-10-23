@@ -196,6 +196,6 @@ Open the URL shown in the terminal (typically `http://localhost:3000` or `http:/
 In accordance with the assignment guidelines, AI coding assistants (Google Antigravity AI) were used to assist with:
 * Accelerating boilerplate UI scaffolding (Tailwind CSS styling and Recharts wiring)
 * Structuring clean architectural separation between ingestion, persistence, and analytics services
-* Drafting comprehensive documentation and interview preparation scripts
+* Drafting comprehensive documentation
 
 All domain modeling, mathematical formulation (WAPE, RMSE, MAE, Bias, P90), Elexon API data filtering (`FUELHH` WIND and `WINDFOR`), and energy trading decision logic were carefully verified and tested for accuracy.

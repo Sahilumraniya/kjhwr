@@ -37,7 +37,7 @@ def health_check():
 
 @router.get("/forecast/comparison")
 def get_daily_comparison(
-    delivery_date: str = Query("2026-01-15", regex=r"^\d{4}-\d{2}-\d{2}$"),
+    delivery_date: str = Query("2026-01-15", pattern=r"^\d{4}-\d{2}-\d{2}$"),
     cutoff_hour: int = Query(11, ge=0, le=23),
     cutoff_minute: int = Query(0, ge=0, le=59)
 ):
@@ -55,8 +55,8 @@ def get_daily_comparison(
 
 @router.get("/metrics/summary")
 def get_metrics_summary(
-    start_date: str = Query("2026-01-01", regex=r"^\d{4}-\d{2}-\d{2}$"),
-    end_date: str = Query("2026-01-31", regex=r"^\d{4}-\d{2}-\d{2}$"),
+    start_date: str = Query("2026-01-01", pattern=r"^\d{4}-\d{2}-\d{2}$"),
+    end_date: str = Query("2026-01-31", pattern=r"^\d{4}-\d{2}-\d{2}$"),
     cutoff_hour: int = Query(11, ge=0, le=23)
 ):
     try:
@@ -67,8 +67,8 @@ def get_metrics_summary(
 
 @router.get("/metrics/diurnal")
 def get_diurnal(
-    start_date: str = Query("2026-01-01", regex=r"^\d{4}-\d{2}-\d{2}$"),
-    end_date: str = Query("2026-01-31", regex=r"^\d{4}-\d{2}-\d{2}$"),
+    start_date: str = Query("2026-01-01", pattern=r"^\d{4}-\d{2}-\d{2}$"),
+    end_date: str = Query("2026-01-31", pattern=r"^\d{4}-\d{2}-\d{2}$"),
     cutoff_hour: int = Query(11, ge=0, le=23)
 ):
     try:
@@ -79,8 +79,8 @@ def get_diurnal(
 
 @router.get("/metrics/distribution")
 def get_distribution(
-    start_date: str = Query("2026-01-01", regex=r"^\d{4}-\d{2}-\d{2}$"),
-    end_date: str = Query("2026-01-31", regex=r"^\d{4}-\d{2}-\d{2}$"),
+    start_date: str = Query("2026-01-01", pattern=r"^\d{4}-\d{2}-\d{2}$"),
+    end_date: str = Query("2026-01-31", pattern=r"^\d{4}-\d{2}-\d{2}$"),
     cutoff_hour: int = Query(11, ge=0, le=23)
 ):
     try:

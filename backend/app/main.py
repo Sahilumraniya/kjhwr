@@ -1,4 +1,5 @@
 import logging
+import os
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -16,11 +17,14 @@ logger = logging.getLogger("energy_app")
 async def lifespan(app: FastAPI):
     logger.info("Initializing database schema...")
     init_db()
-    logger.info("Checking data availability for January 2026...")
-    try:
-        ensure_data_seeded()
-    except Exception as e:
-        logger.warning(f"Background seed check encountered an issue (will retry on demand): {e}")
+    
+    # In Vercel serverless, the DB is already pre-seeded in the git bundle
+    # Avoid blocking cold starts with network requests
+    if not os.environ.get("VERCEL"):
+        try:
+            ensure_data_seeded()
+        except Exception as e:
+            logger.warning(f"Background seed check encountered an issue: {e}")
     yield
     logger.info("Application shutting down...")
 
